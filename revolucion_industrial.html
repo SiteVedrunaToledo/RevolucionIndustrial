@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Revolución Industrial — Trabajo de Investigación</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+<style>
+  :root {
+    --iron: #1a1a1a;
+    --coal: #2c2c2c;
+    --rust: #8B3A1A;
+    --amber: #C97B1A;
+    --steam: #d4c9b0;
+    --parchment: #f5efe2;
+    --copper: #A0522D;
+    --smoke: #6b6355;
+    --light-smoke: #e8e0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--iron);
+    color: var(--steam);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.75;
+  }
+
+  /* ── PORTADA ── */
+  .portada {
+    min-height: 100vh;
+    background: var(--iron);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portada::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255,255,255,0.03) 39px,
+      rgba(255,255,255,0.03) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(255,255,255,0.03) 39px,
+      rgba(255,255,255,0.03) 40px
+    );
+  }
+
+  .gear-decoration {
+    position: absolute;
+    opacity: 0.07;
+    font-size: 18rem;
+    top: -4rem;
+    right: -4rem;
+    animation: spin 60s linear infinite;
+    pointer-events: none;
+  }
+
+  .gear-decoration-2 {
+    position: absolute;
+    opacity: 0.05;
+    font-size: 12rem;
+    bottom: -2rem;
+    left: -2rem;
+    animation: spin 40s linear infinite reverse;
+    pointer-events: none;
+  }
+
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .portada-inner { position: relative; z-index: 1; max-width: 800px; }
+
+  .portada-eyebrow {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .portada h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--parchment);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .portada h1 span {
+    color: var(--amber);
+  }
+
+  .portada-subtitle {
+    font-size: 1.15rem;
+    color: var(--smoke);
+    font-style: italic;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  .portada-meta {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .portada-meta-item {
+    text-align: center;
+  }
+
+  .portada-meta-item .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .portada-meta-item .value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--steam);
+  }
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 300px;
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.5;
+  }
+
+  .divider-ornament span {
+    color: var(--amber);
+    font-size: 1.2rem;
+  }
+
+  /* ── NAVEGACION ── */
+  .nav {
+    background: var(--coal);
+    border-bottom: 1px solid rgba(169, 80, 26, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    padding: 1rem 1.25rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  /* ── SECCIONES ── */
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(201, 123, 26, 0.12);
+    line-height: 1;
+    margin-bottom: -1rem;
+    display: block;
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 300;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--parchment);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .section-intro {
+    font-size: 1.15rem;
+    color: var(--light-smoke);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--amber);
+  }
+
+  .section p {
+    font-size: 1.0rem;
+    color: var(--steam);
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  /* ── TARJETAS DE MÁQUINAS ── */
+  .machines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .machine-card {
+    background: var(--coal);
+    border: 1px solid rgba(201, 123, 26, 0.2);
+    border-top: 3px solid var(--amber);
+    padding: 1.5rem;
+  }
+
+  .machine-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.85;
+  }
+
+  .machine-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--parchment);
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+  }
+
+  .machine-card .year {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .machine-card p {
+    font-size: 0.9rem;
+    color: #a09888;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── FÁBRICAS ── */
+  .factory-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+    align-items: start;
+  }
+
+  @media (max-width: 650px) {
+    .factory-feature { grid-template-columns: 1fr; }
+  }
+
+  .factory-feature-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--parchment);
+    margin-bottom: 1rem;
+  }
+
+  .factory-feature-text p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .factory-visual {
+    background: var(--coal);
+    border: 1px solid rgba(201, 123, 26, 0.15);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .factory-visual-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.5rem;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+  }
+
+  .feature-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .feature-row:last-child { border-bottom: none; }
+
+  .feature-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--amber);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .feature-dot.dim { background: var(--smoke); }
+
+  .feature-text {
+    font-size: 0.88rem;
+    color: var(--steam);
+  }
+
+  .feature-text strong {
+    color: var(--parchment);
+    font-weight: 600;
+  }
+
+  /* ── COMPARATIVA ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+  }
+
+  .compare-table th {
+    background: rgba(201, 123, 26, 0.15);
+    color: var(--amber);
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    border-bottom: 1px solid rgba(201, 123, 26, 0.3);
+  }
+
+  .compare-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: var(--steam);
+    vertical-align: top;
+  }
+
+  .compare-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .compare-table td:first-child {
+    color: var(--parchment);
+    font-weight: 600;
+  }
+
+  /* ── CITA ── */
+  .quote-block {
+    margin: 3rem 0;
+    padding: 2rem 2.5rem;
+    background: rgba(201, 123, 26, 0.07);
+    border-left: 4px solid var(--amber);
+  }
+
+  .quote-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--parchment);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+
+  .quote-source {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    margin: 2.5rem 0;
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.6rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(201, 123, 26, 0.25);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 0.4rem;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--amber);
+    background: var(--iron);
+    border-radius: 50%;
+  }
+
+  .timeline-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--amber);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-event {
+    font-size: 0.95rem;
+    color: var(--steam);
+    line-height: 1.6;
+  }
+
+  .timeline-event strong {
+    color: var(--parchment);
+  }
+
+  /* ── SVG DIAGRAM ── */
+  .diagram-container {
+    background: var(--coal);
+    border: 1px solid rgba(201, 123, 26, 0.15);
+    padding: 2rem;
+    margin: 2.5rem 0;
+    overflow-x: auto;
+  }
+
+  .diagram-container svg text {
+    font-family: 'Source Serif 4', serif;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--coal);
+    border-top: 1px solid rgba(201, 123, 26, 0.2);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--parchment);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 0.85rem;
+    color: var(--smoke);
+    font-style: italic;
+  }
+
+/* ── PILL ── */
+  .pill {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    background: rgba(201, 123, 26, 0.15);
+    color: var(--amber);
+    font-size: 0.75rem;
+    border-radius: 2px;
+    border: 1px solid rgba(201, 123, 26, 0.3);
+    margin: 0.2rem 0.2rem 0.2rem 0;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .highlight-box {
+    background: var(--coal);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--parchment);
+    margin-bottom: 0.75rem;
+  }
+
+  .highlight-box ul {
+    padding-left: 1.2rem;
+  }
+
+  .highlight-box li {
+    font-size: 0.9rem;
+    color: var(--steam);
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+  }
+
+  /* ── INDUSTRIAS ESPAÑA ── */
+  .spain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 600px) {
+    .spain-grid { grid-template-columns: 1fr; }
+  }
+
+  .spain-card {
+    background: var(--coal);
+    border-bottom: 3px solid;
+    padding: 1.25rem;
+  }
+
+  .spain-card.cataluna { border-color: #C97B1A; }
+  .spain-card.pais-vasco { border-color: #1A6B8A; }
+  .spain-card.andalucia { border-color: #8B3A1A; }
+
+  .spain-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--parchment);
+    margin-bottom: 0.5rem;
+  }
+
+  .spain-card p {
+    font-size: 0.85rem;
+    color: #a09888;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .ribbon {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .spain-card.cataluna .ribbon { color: #C97B1A; }
+  .spain-card.pais-vasco .ribbon { color: #4aaecf; }
+  .spain-card.andalucia .ribbon { color: #c07050; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ PORTADA ═══════════════════════════════════ -->
+<section class="portada">
+  <div class="gear-decoration">⚙</div>
+  <div class="gear-decoration-2">⚙</div>
+  <div class="portada-inner">
+    <span class="portada-eyebrow">Geografía e Historia · 3.º ESO</span>
+    <h1>La Revolución<br><span>Industrial</span></h1>
+    <p class="portada-subtitle">Fábricas, máquinas y la transformación del mundo moderno</p>
+    <div class="divider-ornament"><span>⚙</span></div>
+    <div class="portada-meta">
+      <div class="portada-meta-item">
+        <span class="label">Período</span>
+        <span class="value">1760 – 1914</span>
+      </div>
+      <div class="portada-meta-item">
+        <span class="label">Nombre</span>
+        <span class="value">Jorge Cano Gorrachategui</span>
+      </div>
+      <div class="portada-meta-item">
+        <span class="label">Curso</span>
+        <span class="value">3.º C ESO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-link" href="#origenes">Orígenes</a>
+    <a class="nav-link" href="#fabricas">Las fábricas</a>
+    <a class="nav-link" href="#maquinas">Las máquinas</a>
+    <a class="nav-link" href="#transporte">Transportes</a>
+    <a class="nav-link" href="#segunda">2.ª Revolución</a>
+    <a class="nav-link" href="#espana">España</a>
+    <a class="nav-link" href="#cronologia">Cronología</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════ 1. ORÍGENES ═══════════════════════════════════ -->
+<section class="section" id="origenes">
+  <span class="section-number">01</span>
+  <span class="section-tag">Punto de partida</span>
+  <h2>Orígenes de la Revolución Industrial</h2>
+
+  <p class="section-intro">
+    El término <em>Revolución Industrial</em> hace referencia al conjunto de innovaciones técnicas cuya aplicación en la industria incrementó la producción económica. Su inicio se sitúa en Inglaterra, entre 1760 y 1780.
+  </p>
+
+  <p>
+    Desde mediados del siglo XVII, Gran Bretaña experimentó un profundo cambio económico: el paso de una economía agraria a una industrial. Esta transformación fue posible gracias a una combinación de factores que se dieron de forma simultánea y que colocaron a Gran Bretaña en una posición de ventaja frente al resto de Europa.
+  </p>
+
+  <p>Gran Bretaña era el país con las condiciones idóneas para iniciar la Revolución Industrial: había realizado la revolución agrícola, registrado profundos cambios demográficos y desarrollado una amplia red de transportes, especialmente el ferrocarril.</p>
+
+  <div class="factory-feature">
+    <div class="factory-feature-text">
+      <h3>La revolución agraria</h3>
+      <p>
+        Antes de que arrancaran las fábricas, el campo tuvo que cambiar. Las antiguas tierras comunales se cercaron mediante las <em>Enclosure Acts</em> de 1760, convirtiendo los campos abiertos (<em>openfields</em>) en propiedades privadas. El resultado fue un éxodo rural masivo: miles de campesinos sin tierra marcharon a las ciudades en busca de trabajo en las industrias.
+      </p>
+      <p>
+        Al mismo tiempo, el <strong>Sistema Norfolk</strong> de rotación cuatrienal sustituyó al viejo barbecho, incorporando plantas forrajeras que alimentaban al ganado y aportaban estiércol para la tierra. La producción de alimentos creció, y con ella la población.
+      </p>
+    </div>
+    <div class="factory-visual">
+      <span class="factory-visual-title">Factores que hicieron posible la revolución</span>
+      <div class="feature-row"><div class="feature-dot"></div><div class="feature-text"><strong>Revolución agraria</strong> — mano de obra libre y capitales</div></div>
+      <div class="feature-row"><div class="feature-dot"></div><div class="feature-text"><strong>Crecimiento demográfico</strong> — más consumidores y obreros</div></div>
+      <div class="feature-row"><div class="feature-dot"></div><div class="feature-text"><strong>Comercio triangular</strong> — acumulación de capital burgués</div></div>
+      <div class="feature-row"><div class="feature-dot"></div><div class="feature-text"><strong>Innovación tecnológica</strong> — mecanización del trabajo</div></div>
+      <div class="feature-row"><div class="feature-dot"></div><div class="feature-text"><strong>Red de transportes</strong> — ferrocarril y canales</div></div>
+      <div class="feature-row"><div class="feature-dot dim"></div><div class="feature-text"><strong>Carbón y hierro</strong> — fuentes de energía y materia prima</div></div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<!-- ═══════════════════════════════════ 2. LAS FÁBRICAS ═══════════════════════════════════ -->
+<section class="section" id="fabricas">
+  <span class="section-number">02</span>
+  <span class="section-tag">El corazón de la industrialización</span>
+  <h2>Las fábricas: un nuevo mundo del trabajo</h2>
+
+  <p class="section-intro">
+    La fábrica fue la gran protagonista de la Revolución Industrial. Sustituyó al taller artesanal y concentró en un mismo espacio obreros, máquinas y una nueva organización del trabajo que lo cambiaría todo.
+  </p>
+
+  <p>
+    Durante el Antiguo Régimen, la producción industrial se realizaba en pequeños talleres donde artesanos especializados trabajaban con herramientas manuales y vendían directamente al cliente. Con la Revolución Industrial, este modelo entró en declive casi total. En su lugar surgieron las <strong>fábricas</strong>: grandes edificaciones donde se concentraban obreros y máquinas movidas por una misma instalación energética.
+  </p>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 760 220" width="100%" xmlns="http://www.w3.org/2000/svg" style="max-height:220px;">
+      <!-- Taller artesanal -->
+      <rect x="20" y="30" width="180" height="160" rx="2" fill="#2c2c2c" stroke="rgba(201,123,26,0.25)" stroke-width="1"/>
+      <text x="110" y="22" fill="#a09888" font-size="10" text-anchor="middle" font-family="Source Serif 4,serif" letter-spacing="0.1em">ANTES</text>
+      <text x="110" y="58" fill="#f5efe2" font-size="13" font-weight="bold" text-anchor="middle" font-family="Playfair Display,serif">Taller Artesanal</text>
+      <text x="110" y="80" fill="#a09888" font-size="9.5" text-anchor="middle" font-family="Source Serif 4,serif">Antiguo Régimen</text>
+      <line x1="40" y1="92" x2="180" y2="92" stroke="rgba(201,123,26,0.15)" stroke-width="0.5"/>
+      <text x="40" y="110" fill="#8a8070" font-size="9" font-family="Source Serif 4,serif">→ Artesanos especializados</text>
+      <text x="40" y="126" fill="#8a8070" font-size="9" font-family="Source Serif 4,serif">→ Herramientas manuales</text>
+      <text x="40" y="142" fill="#8a8070" font-size="9" font-family="Source Serif 4,serif">→ Producción pequeña</text>
+      <text x="40" y="158" fill="#8a8070" font-size="9" font-family="Source Serif 4,serif">→ Venta directa al cliente</text>
+      <text x="40" y="174" fill="#8a8070" font-size="9" font-family="Source Serif 4,serif">→ Sin energía mecánica</text>
+
+      <!-- Flecha central -->
+      <line x1="215" y1="110" x2="285" y2="110" stroke="#C97B1A" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <polygon points="285,106 295,110 285,114" fill="#C97B1A"/>
+      <text x="255" y="104" fill="#C97B1A" font-size="9" text-anchor="middle" font-family="Source Serif 4,serif">Revolución</text>
+      <text x="255" y="126" fill="#C97B1A" font-size="9" text-anchor="middle" font-family="Source Serif 4,serif">Industrial</text>
+
+      <!-- Fábrica -->
+      <rect x="300" y="30" width="440" height="160" rx="2" fill="#2c2c2c" stroke="rgba(201,123,26,0.45)" stroke-width="1.5"/>
+      <text x="520" y="22" fill="#C97B1A" font-size="10" text-anchor="middle" font-family="Source Serif 4,serif" letter-spacing="0.1em">DESPUÉS</text>
+      <text x="520" y="58" fill="#f5efe2" font-size="13" font-weight="bold" text-anchor="middle" font-family="Playfair Display,serif">La Fábrica (Factory System)</text>
+      <text x="520" y="80" fill="#a09888" font-size="9.5" text-anchor="middle" font-family="Source Serif 4,serif">Revolución Industrial · 1760 en adelante</text>
+      <line x1="320" y1="92" x2="720" y2="92" stroke="rgba(201,123,26,0.2)" stroke-width="0.5"/>
+
+      <text x="320" y="110" fill="#d4c9b0" font-size="9" font-family="Source Serif 4,serif">→ Obreros sin cualificación</text>
+      <text x="320" y="126" fill="#d4c9b0" font-size="9" font-family="Source Serif 4,serif">→ Máquinas de vapor</text>
+      <text x="320" y="142" fill="#d4c9b0" font-size="9" font-family="Source Serif 4,serif">→ Producción en serie</text>
+
+      <text x="530" y="110" fill="#d4c9b0" font-size="9" font-family="Source Serif 4,serif">→ División del trabajo (taylorismo)</text>
+      <text x="530" y="126" fill="#d4c9b0" font-size="9" font-family="Source Serif 4,serif">→ Jornadas de 12-16 horas</text>
+      <text x="530" y="142" fill="#d4c9b0" font-size="9" font-family="Source Serif 4,serif">→ Localización junto a minas de carbón</text>
+      <text x="530" y="158" fill="#d4c9b0" font-size="9" font-family="Source Serif 4,serif">→ Gran escala y costes reducidos</text>
+    </svg>
+  </div>
+
+  <div class="factory-feature">
+    <div class="factory-feature-text">
+      <h3>Industria textil: la primera en mecanizarse</h3>
+      <p>
+        La industria textil fue la pionera en adoptar la maquinaria. El crecimiento demográfico disparó la demanda de tejidos de algodón. En un principio se usaron máquinas hidráulicas junto a los ríos; más tarde llegaron los telares mecánicos y la <em>selfactina</em> (la primera hiladora automática), ambas movidas por vapor. Esto consolidó definitivamente el sistema de fábricas y permitió que los tejidos de algodón desplazaran al lino y la lana.
+      </p>
+    </div>
+    <div class="factory-feature-text">
+      <h3>Siderurgia y minería: el hierro y el carbón</h3>
+      <p>
+        A finales del siglo XVIII se generalizó el carbón de coque, que liberaba más energía que el vegetal y permitía fundir acero en altos hornos. Henry Cort inventó técnicas de <em>pudelación</em> (para endurecer el hierro) y <em>laminación</em> (para moldearlo), disparando la producción británica. Las fábricas se concentraron cerca de las minas de carbón, transformando radicalmente el paisaje del país.
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>Condiciones de vida en las fábricas</h4>
+    <ul>
+      <li>Jornadas laborales de entre 12 y 16 horas en recintos insalubres y sin ventilación.</li>
+      <li>Explotación del trabajo infantil: niños desde los 6 años con salarios ínfimos.</li>
+      <li>Las mujeres cobraban menos que los hombres por el mismo trabajo.</li>
+      <li>Carencia de derechos laborales, sin seguro de paro ni jubilación.</li>
+      <li>Vivían hacinados en barrios obreros junto a las fábricas, sin alcantarillado ni agua corriente.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ 3. LAS MÁQUINAS ═══════════════════════════════════ -->
+<section class="section" id="maquinas">
+  <span class="section-number">03</span>
+  <span class="section-tag">Inventos que cambiaron la historia</span>
+  <h2>Las máquinas de la era industrial</h2>
+
+  <p class="section-intro">
+    El verdadero motor de la Revolución Industrial fue la capacidad humana de inventar. Cada nueva máquina multiplicaba la producción, transformaba un sector entero y abría la puerta a nuevos inventos.
+  </p>
+
+  <p>
+    La clave del sistema fabril fue la sustitución del trabajo manual por trabajo mecánico. Las máquinas se movían aprovechando fuentes de energía cada vez más potentes: primero el agua, después el vapor obtenido quemando carbón, y finalmente la electricidad y el petróleo. Este proceso se conoce como <strong>mecanización de la industria</strong>.
+  </p>
+
+  <div class="machines-grid">
+
+    <div class="machine-card">
+      <span class="machine-card-icon">🔩</span>
+      <h3>Máquina de vapor</h3>
+      <span class="year">James Watt · 1763</span>
+      <p>La invención más transformadora de la Revolución Industrial. Aprovechaba la energía química del carbón para producir movimiento mecánico a través de la presión del agua hirviendo. Se adaptó a telares, ferrocarriles, barcos y minas, convirtiéndose en el motor universal de la industrialización.</p>
+    </div>
+
+    <div class="machine-card">
+      <span class="machine-card-icon">🧵</span>
+      <h3>Telar mecánico</h3>
+      <span class="year">Edmund Cartwright · 1785</span>
+      <p>Movido por vapor, multiplicó la velocidad de producción de telas respecto al telar manual. Junto a la <em>selfactina</em> (hiladora automática), permitió fabricar tejidos de algodón de forma masiva y a bajo coste, catapultando la industria textil británica al liderazgo mundial.</p>
+    </div>
+
+    <div class="machine-card">
+      <span class="machine-card-icon">🚂</span>
+      <h3>Locomotora de vapor</h3>
+      <span class="year">George Stephenson · 1814-1829</span>
+      <p>Aplicó la máquina de vapor al transporte ferroviario. La primera línea de pasajeros unió Manchester y Liverpool en 1830. Redujo drásticamente los costes del transporte, integró los mercados nacionales y fue decisiva para el desarrollo industrial europeo.</p>
+    </div>
+
+    <div class="machine-card">
+      <span class="machine-card-icon">⚓</span>
+      <h3>Barco de vapor</h3>
+      <span class="year">Robert Fulton · 1807</span>
+      <p>Aplicó la máquina de vapor a la navegación, primero fluvial y luego marítima. A finales del siglo XIX, con la incorporación de la hélice, los buques de vapor superaron en velocidad a los de vela. Permitió la apertura de grandes canales como el de Suez (1869).</p>
+    </div>
+
+    <div class="machine-card">
+      <span class="machine-card-icon">⚡</span>
+      <h3>Dinamo y central hidroeléctrica</h3>
+      <span class="year">Bergès · 1873 / Desprez · 1881</span>
+      <p>La electricidad pasó de ser una curiosidad científica a producirse industrialmente en centrales hidroeléctricas. Desprez resolvió el problema de su transporte mediante corriente de alta tensión. Sus aplicaciones fueron enormes: alumbrado eléctrico, telégrafo, teléfono y tranvías.</p>
+    </div>
+
+    <div class="machine-card">
+      <span class="machine-card-icon">🚗</span>
+      <h3>Motor de combustión interna</h3>
+      <span class="year">Diesel · Daimler · Benz · 1885-1897</span>
+      <p>Rudolf Diesel inventó el motor de combustión interna y los alemanes Gottlieb Daimler y Karl Benz crearon el motor de explosión. El petróleo, hasta entonces poco utilizado, se convirtió en el combustible del automóvil y del transporte moderno, abriendo una nueva era energética.</p>
+    </div>
+
+    <div class="machine-card">
+      <span class="machine-card-icon">🏭</span>
+      <h3>Convertidor Bessemer</h3>
+      <span class="year">Henry Bessemer · 1856</span>
+      <p>Revolucionó la industria siderúrgica al permitir transformar grandes cantidades de hierro en acero de manera rápida y con menos impurezas. El acero resultante fue más resistente y versátil, facilitando la construcción de puentes, ferrocarriles, barcos y edificios de gran escala.</p>
+    </div>
+
+    <div class="machine-card">
+      <span class="machine-card-icon">💡</span>
+      <h3>Lámpara incandescente</h3>
+      <span class="year">Thomas A. Edison · 1878</span>
+      <p>Edison perfeccionó la lámpara de filamento, haciendo posible el alumbrado eléctrico doméstico y en fábricas. Esto permitió ampliar los turnos de trabajo más allá de la luz del día, incrementando aún más la producción industrial y transformando la vida cotidiana.</p>
+    </div>
+
+  </div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Máquina / Invento</th>
+        <th>Inventor</th>
+        <th>Año</th>
+        <th>Sector afectado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Máquina de vapor</td><td>James Watt</td><td>1763</td><td>Universal — industria y transporte</td></tr>
+      <tr><td>Telar mecánico</td><td>Edmund Cartwright</td><td>1785</td><td>Industria textil</td></tr>
+      <tr><td>Locomotora de vapor</td><td>G. Stephenson</td><td>1814</td><td>Transporte terrestre</td></tr>
+      <tr><td>Barco de vapor</td><td>Robert Fulton</td><td>1807</td><td>Transporte marítimo</td></tr>
+      <tr><td>Convertidor Bessemer</td><td>Henry Bessemer</td><td>1856</td><td>Siderurgia (acero)</td></tr>
+      <tr><td>Central hidroeléctrica</td><td>Aristide Bergès</td><td>1873</td><td>Energía eléctrica</td></tr>
+      <tr><td>Lámpara incandescente</td><td>Thomas Edison</td><td>1878</td><td>Alumbrado industrial</td></tr>
+      <tr><td>Motor de explosión</td><td>Daimler / Benz</td><td>1885</td><td>Automoción / transporte</td></tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- ═══════════════════════════════════ 4. TRANSPORTE ═══════════════════════════════════ -->
+<section class="section" id="transporte">
+  <span class="section-number">04</span>
+  <span class="section-tag">La revolución de la movilidad</span>
+  <h2>Los nuevos transportes</h2>
+
+  <p class="section-intro">
+    El aumento de la producción exigía mover más mercancías, más rápido y más barato. La aplicación del vapor al transporte fue tan revolucionaria como su aplicación a la industria.
+  </p>
+
+  <p>
+    Con la Revolución Industrial el comercio alcanzó un volumen sin precedentes, y los viejos caminos de tierra y los lentos carros de bueyes resultaban ya completamente insuficientes. La energía del vapor transformó tanto el transporte terrestre como el marítimo, reduciendo costes, acortando tiempos y ampliando los mercados a escala mundial.
+  </p>
+
+  <div class="factory-feature">
+    <div class="factory-feature-text">
+      <h3>El ferrocarril</h3>
+      <p>
+        Ya se usaban vagonetas en las minas para trasladar minerales, pero el gran salto fue añadir una locomotora de vapor. La primera línea pública de pasajeros unió <strong>Manchester y Liverpool en 1830</strong>. Su impacto fue inmediato: redujo drásticamente el tiempo y el coste del transporte, integró los mercados nacionales, impulsó la demanda de hierro y carbón, y fue decisiva para el desarrollo industrial de toda Europa.
+      </p>
+      <div class="divider-ornament" style="margin: 1rem 0; max-width: 100%;"><span>⚙</span></div>
+      <p style="font-style:italic; font-size:0.9rem; color:#a09888;">
+        España inauguró su primera línea en 1848, entre Barcelona y Mataró. La Ley General de Ferrocarriles de 1855 impulsó la expansión de la red, contribuyendo a la siderurgia nacional.
+      </p>
+    </div>
+    <div class="factory-feature-text">
+      <h3>El barco de vapor</h3>
+      <p>
+        Robert Fulton aplicó la máquina de vapor a la navegación en 1807. Los primeros vapores recorrieron los ríos con grandes ruedas de palas. Sin embargo, hasta finales del siglo XIX, cuando se incorporó la <strong>hélice</strong>, no se impusieron definitivamente a los veleros en el transporte de mercancías. Desde entonces, los países modernizaron sus puertos y se abrieron grandes canales oceánicos, como el <strong>Canal de Suez</strong> (1859–1869), que acortó radicalmente las rutas comerciales entre Europa y Asia.
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>Segunda Revolución Industrial: nuevos medios de transporte</h4>
+    <ul>
+      <li><strong>Tranvía eléctrico</strong> — transporte urbano de pasajeros, sustituyó a los tirados por caballos.</li>
+      <li><strong>Ferrocarril urbano y metro</strong> — movilidad masiva en las grandes ciudades industriales.</li>
+      <li><strong>Automóvil</strong> — motor de explosión de Daimler y Benz; inicio de la era del petróleo.</li>
+      <li><strong>Avión</strong> — los hermanos Wright en 1903; inicio de la aviación comercial del siglo XX.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ 5. SEGUNDA REVOLUCIÓN ═══════════════════════════════════ -->
+<section class="section" id="segunda">
+  <span class="section-number">05</span>
+  <span class="section-tag">A partir de 1870</span>
+  <h2>Segunda Revolución Industrial</h2>
+
+  <p class="section-intro">
+    Conocida también como el «gran capitalismo», esta segunda fase superó a la primera en escala, potencia y alcance geográfico. La electricidad y el petróleo relevaron al carbón y al vapor como energías dominantes.
+  </p>
+
+  <p>
+    A partir de 1870 la revolución industrial entró en una nueva fase. Se extendió geográficamente por toda Europa, Estados Unidos y Japón, aparecieron nuevas fuentes de energía, las industrias ya mecanizadas se ampliaron y surgieron otras completamente nuevas. Esta etapa se caracterizó por cambios profundos en la organización del trabajo, las fuentes de financiación y la tipología de empresas.
+  </p>
+
+  <div class="machines-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+    <div class="machine-card">
+      <h3 style="font-size:1rem; margin-bottom:0.3rem;">Taylorismo</h3>
+      <span class="year">Frederick W. Taylor</span>
+      <p>Especialización del obrero en una sola tarea y remuneración según rendimiento. Redujo los tiempos de producción.</p>
+    </div>
+    <div class="machine-card">
+      <h3 style="font-size:1rem; margin-bottom:0.3rem;">Fordismo</h3>
+      <span class="year">Henry Ford</span>
+      <p>Cadena de montaje continua. El obrero permanece fijo; es el producto quien se mueve. Producción en masa a bajo coste.</p>
+    </div>
+    <div class="machine-card">
+      <h3 style="font-size:1rem; margin-bottom:0.3rem;">Sociedades anónimas</h3>
+      <span class="year">Nueva forma de financiación</span>
+      <p>Empresas formadas por la unión de capitales individuales (acciones). Permitieron inversiones que ningún empresario podía afrontar solo.</p>
+    </div>
+    <div class="machine-card">
+      <h3 style="font-size:1rem; margin-bottom:0.3rem;">Cárteles, Trusts y Holdings</h3>
+      <span class="year">Concentración empresarial</span>
+      <p>Las empresas se fusionaron horizontal y verticalmente para controlar precios, reducir costes y eliminar competidores.</p>
+    </div>
+  </div>
+
+  <span class="pill">Electricidad</span>
+  <span class="pill">Petróleo</span>
+  <span class="pill">Acero Bessemer</span>
+  <span class="pill">Industria química</span>
+  <span class="pill">Automóvil</span>
+  <span class="pill">Avión</span>
+  <span class="pill">Teléfono</span>
+  <span class="pill">Radio</span>
+  <span class="pill">Tranvía eléctrico</span>
+  <span class="pill">Metro</span>
+</section>
+
+
+<!-- ═══════════════════════════════════ 6. ESPAÑA ═══════════════════════════════════ -->
+<section class="section" id="espana">
+  <span class="section-number">06</span>
+  <span class="section-tag">El caso particular</span>
+  <h2>Industrialización en España</h2>
+
+  <p class="section-intro">
+    España llegó tarde y con dificultades a la Revolución Industrial. La inestabilidad política, la escasa inversión burguesa y la falta de infraestructuras frenaron un proceso que en el resto de Europa avanzaba a toda velocidad.
+  </p>
+
+  <p>
+    Mientras Europa iniciaba el siglo XIX en plena aceleración industrial, España sufría las consecuencias de la Guerra de la Independencia y las guerras carlistas. La industrialización se inició hacia 1830 pero fue lenta y desigual. La burguesía española prefería invertir en tierras desamortizadas antes que en fábricas; la red de comunicaciones era deficiente; y la demanda interna, muy escasa.
+  </p>
+
+  <div class="spain-grid">
+    <div class="spain-card cataluna">
+      <span class="ribbon">Industria textil</span>
+      <h4>Cataluña</h4>
+      <p>Principal foco de la industria textil del algodón y la lana. Las importaciones de algodón en rama se multiplicaron por diez entre 1834 y 1876. Barcelona fue el centro del movimiento obrero español.</p>
+    </div>
+    <div class="spain-card pais-vasco">
+      <span class="ribbon">Siderurgia y minería</span>
+      <h4>País Vasco</h4>
+      <p>Desarrollo de la siderurgia: Altos Hornos de Vizcaya (1902) y astilleros de Euskalduna (1900). La industria naviera fue otro pilar económico fundamental de la región.</p>
+    </div>
+    <div class="spain-card andalucia">
+      <span class="ribbon">Minería e industria</span>
+      <h4>Andalucía</h4>
+      <p>Expansión textil y siderúrgica en Cádiz y Málaga. Las minas de Riotinto (Huelva) fueron adquiridas por empresas británicas en 1873, un ejemplo de inversión extranjera en recursos españoles.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>El movimiento obrero en España</h4>
+    <ul>
+      <li>Los <em>luditas</em> catalanes destruyeron telares en la década de 1820, al igual que en Gran Bretaña.</li>
+      <li>La primera huelga general tuvo lugar en <strong>Barcelona en 1855</strong>: reclamaba aumento de salarios y jornada de 10 horas.</li>
+      <li>Pablo Iglesias fundó el <strong>PSOE</strong> en 1879 y la <strong>UGT</strong> (sindicato marxista) en 1888.</li>
+      <li>El anarquismo triunfó entre campesinos andaluces y obreros catalanes; fundaron la <strong>CNT</strong>, el sindicato con mayor número de afiliados.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ 7. CRONOLOGÍA ═══════════════════════════════════ -->
+<section class="section" id="cronologia">
+  <span class="section-number">07</span>
+  <span class="section-tag">El hilo del tiempo</span>
+  <h2>Cronología esencial</h2>
+
+  <p class="section-intro">
+    Más de un siglo de inventos, revoluciones y transformaciones sociales que moldearon el mundo en que vivimos.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">1760 – 1780</div>
+      <div class="timeline-event">Inicio de la <strong>Primera Revolución Industrial</strong> en Gran Bretaña. Las <em>Enclosure Acts</em> cercan las tierras comunales y disparan el éxodo rural.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1763</div>
+      <div class="timeline-event"><strong>James Watt</strong> perfecciona la máquina de vapor, el invento más transformador de la era industrial.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1785</div>
+      <div class="timeline-event"><strong>Edmund Cartwright</strong> inventa el telar mecánico movido por vapor, consolidando el sistema de fábricas textiles.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1807</div>
+      <div class="timeline-event"><strong>Robert Fulton</strong> aplica la máquina de vapor a la navegación: nace el barco de vapor.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1830</div>
+      <div class="timeline-event">Primera línea ferroviaria de pasajeros entre <strong>Manchester y Liverpool</strong>. El ferrocarril transforma para siempre el transporte de personas y mercancías.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1848</div>
+      <div class="timeline-event">Marx y Engels publican el <em>Manifiesto Comunista</em>. España inaugura su primera línea ferroviaria: <strong>Barcelona-Mataró</strong>.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1856</div>
+      <div class="timeline-event"><strong>Henry Bessemer</strong> inventa su convertidor de acero, revolucionando la industria siderúrgica.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1864</div>
+      <div class="timeline-event">Fundación en Londres de la <strong>Primera Internacional Obrera</strong> (AIT), impulsada por Marx y Bakunin.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1869</div>
+      <div class="timeline-event">Apertura del <strong>Canal de Suez</strong>, acortando las rutas marítimas entre Europa y Asia.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1870 en adelante</div>
+      <div class="timeline-event">Inicio de la <strong>Segunda Revolución Industrial</strong>. Electricidad y petróleo sustituyen al carbón. Alemania y Estados Unidos emergen como nuevas potencias industriales.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1878</div>
+      <div class="timeline-event"><strong>Thomas Edison</strong> perfecciona la lámpara incandescente. La electricidad llega al alumbrado industrial y doméstico.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1885 – 1897</div>
+      <div class="timeline-event"><strong>Daimler, Benz y Diesel</strong> inventan los motores de explosión y combustión interna. Nace el automóvil.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1914</div>
+      <div class="timeline-event">La <strong>Primera Guerra Mundial</strong> pone fin a la Segunda Internacional Obrera y marca el fin de la era clásica de la industrialización.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer class="footer">
+  <div class="divider-ornament" style="margin: 0 auto 2rem;"><span>⚙</span></div>
+  <p class="footer-title">La Revolución Industrial</p>
+  <p class="footer-sub">Jorge Cano Gorrachategui · 3.º C ESO</p>
+
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
