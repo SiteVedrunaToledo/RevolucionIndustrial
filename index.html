@@ -613,6 +613,13 @@
     margin-bottom: 0.5rem;
     display: block;
   }
+  .machine-card-icon{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 12px auto;
+}
 
   .spain-card.cataluna .ribbon { color: #C97B1A; }
   .spain-card.pais-vasco .ribbon { color: #4aaecf; }
@@ -800,65 +807,81 @@
     La clave del sistema fabril fue la sustitución del trabajo manual por trabajo mecánico. Las máquinas se movían aprovechando fuentes de energía cada vez más potentes: primero el agua, después el vapor obtenido quemando carbón, y finalmente la electricidad y el petróleo. Este proceso se conoce como <strong>mecanización de la industria</strong>.
   </p>
 
-  <div class="machines-grid">
+<div class="machines-grid">
 
-    <div class="machine-card">
-      <span class="machine-card-icon">🔩</span>
-      <h3>Máquina de vapor</h3>
-      <span class="year">James Watt · 1763</span>
-      <p>La invención más transformadora de la Revolución Industrial. Aprovechaba la energía química del carbón para producir movimiento mecánico a través de la presión del agua hirviendo. Se adaptó a telares, ferrocarriles, barcos y minas, convirtiéndose en el motor universal de la industrialización.</p>
-    </div>
-
-    <div class="machine-card">
-      <span class="machine-card-icon">🧵</span>
-      <h3>Telar mecánico</h3>
-      <span class="year">Edmund Cartwright · 1785</span>
-      <p>Movido por vapor, multiplicó la velocidad de producción de telas respecto al telar manual. Junto a la <em>selfactina</em> (hiladora automática), permitió fabricar tejidos de algodón de forma masiva y a bajo coste, catapultando la industria textil británica al liderazgo mundial.</p>
-    </div>
-
-    <div class="machine-card">
-      <span class="machine-card-icon">🚂</span>
-      <h3>Locomotora de vapor</h3>
-      <span class="year">George Stephenson · 1814-1829</span>
-      <p>Aplicó la máquina de vapor al transporte ferroviario. La primera línea de pasajeros unió Manchester y Liverpool en 1830. Redujo drásticamente los costes del transporte, integró los mercados nacionales y fue decisiva para el desarrollo industrial europeo.</p>
-    </div>
-
-    <div class="machine-card">
-      <span class="machine-card-icon">⚓</span>
-      <h3>Barco de vapor</h3>
-      <span class="year">Robert Fulton · 1807</span>
-      <p>Aplicó la máquina de vapor a la navegación, primero fluvial y luego marítima. A finales del siglo XIX, con la incorporación de la hélice, los buques de vapor superaron en velocidad a los de vela. Permitió la apertura de grandes canales como el de Suez (1869).</p>
-    </div>
-
-    <div class="machine-card">
-      <span class="machine-card-icon">⚡</span>
-      <h3>Dinamo y central hidroeléctrica</h3>
-      <span class="year">Bergès · 1873 / Desprez · 1881</span>
-      <p>La electricidad pasó de ser una curiosidad científica a producirse industrialmente en centrales hidroeléctricas. Desprez resolvió el problema de su transporte mediante corriente de alta tensión. Sus aplicaciones fueron enormes: alumbrado eléctrico, telégrafo, teléfono y tranvías.</p>
-    </div>
-
-    <div class="machine-card">
-      <span class="machine-card-icon">🚗</span>
-      <h3>Motor de combustión interna</h3>
-      <span class="year">Diesel · Daimler · Benz · 1885-1897</span>
-      <p>Rudolf Diesel inventó el motor de combustión interna y los alemanes Gottlieb Daimler y Karl Benz crearon el motor de explosión. El petróleo, hasta entonces poco utilizado, se convirtió en el combustible del automóvil y del transporte moderno, abriendo una nueva era energética.</p>
-    </div>
-
-    <div class="machine-card">
-      <span class="machine-card-icon">🏭</span>
-      <h3>Convertidor Bessemer</h3>
-      <span class="year">Henry Bessemer · 1856</span>
-      <p>Revolucionó la industria siderúrgica al permitir transformar grandes cantidades de hierro en acero de manera rápida y con menos impurezas. El acero resultante fue más resistente y versátil, facilitando la construcción de puentes, ferrocarriles, barcos y edificios de gran escala.</p>
-    </div>
-
-    <div class="machine-card">
-      <span class="machine-card-icon">💡</span>
-      <h3>Lámpara incandescente</h3>
-      <span class="year">Thomas A. Edison · 1878</span>
-      <p>Edison perfeccionó la lámpara de filamento, haciendo posible el alumbrado eléctrico doméstico y en fábricas. Esto permitió ampliar los turnos de trabajo más allá de la luz del día, incrementando aún más la producción industrial y transformando la vida cotidiana.</p>
-    </div>
-
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_VAPOR.png" alt="Máquina de vapor">
+    <h3>Máquina de vapor</h3>
+    <span class="year">James Watt · 1763</span>
+    <p>
+      La invención más importante de la Revolución Industrial. Utilizaba el carbón para calentar agua y generar vapor, produciendo movimiento mecánico. Se aplicó en fábricas, minas, trenes y barcos, convirtiéndose en la base de la industrialización.
+    </p>
   </div>
+
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_TELAR.png" alt="Telar mecánico">
+    <h3>Telar mecánico</h3>
+    <span class="year">Edmund Cartwright · 1785</span>
+    <p>
+      Funcionaba con energía de vapor y permitía fabricar telas mucho más rápido que los telares manuales. Junto con la selfactina, impulsó el crecimiento de la industria textil y la producción masiva de algodón.
+    </p>
+  </div>
+
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_TREN.png" alt="Locomotora de vapor">
+    <h3>Locomotora de vapor</h3>
+    <span class="year">George Stephenson · 1814-1829</span>
+    <p>
+      Aplicó la máquina de vapor al transporte ferroviario. Facilitó el comercio y el transporte de personas y mercancías, reduciendo tiempo y costes entre ciudades industriales.
+    </p>
+  </div>
+
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_BARCO.png" alt="Barco de vapor">
+    <h3>Barco de vapor</h3>
+    <span class="year">Robert Fulton · 1807</span>
+    <p>
+      Incorporó la máquina de vapor a la navegación. Los barcos se volvieron más rápidos y fiables que los de vela, favoreciendo el comercio internacional y el transporte marítimo.
+    </p>
+  </div>
+
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_DINAMO.png" alt="Dinamo">
+    <h3>Dinamo y central hidroeléctrica</h3>
+    <span class="year">Bergès · 1873 / Desprez · 1881</span>
+    <p>
+      Permitieron producir y transportar electricidad a gran escala. Gracias a ello surgieron nuevas tecnologías como el alumbrado eléctrico, el telégrafo, el teléfono y los tranvías.
+    </p>
+  </div>
+
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_MOTOR.png" alt="Motor de combustión">
+    <h3>Motor de combustión interna</h3>
+    <span class="year">Diesel · Daimler · Benz · 1885-1897</span>
+    <p>
+      Utilizaba derivados del petróleo para generar movimiento. Dio origen al automóvil moderno y convirtió al petróleo en una de las principales fuentes de energía del mundo.
+    </p>
+  </div>
+
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_BESSEMER.png" alt="Convertidor Bessemer">
+    <h3>Convertidor Bessemer</h3>
+    <span class="year">Henry Bessemer · 1856</span>
+    <p>
+      Revolucionó la fabricación de acero al hacerla más rápida y barata. Gracias a ello se construyeron grandes puentes, edificios, vías férreas y barcos de acero.
+    </p>
+  </div>
+
+  <div class="machine-card">
+    <img class="machine-card-icon" src="IMAGEN_BOMBILLA.png" alt="Lámpara incandescente">
+    <h3>Lámpara incandescente</h3>
+    <span class="year">Thomas A. Edison · 1878</span>
+    <p>
+      Permitió iluminar fábricas y hogares con electricidad. Gracias a la luz artificial, las fábricas pudieron ampliar los horarios de trabajo y aumentar la producción.
+    </p>
+  </div>
+
+</div>
 
   <table class="compare-table">
     <thead>
